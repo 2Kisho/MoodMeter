@@ -1,7 +1,10 @@
 package de.ziczack.moodmeter.team;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import de.ziczack.moodmeter.user.MoodMeterUser;
@@ -18,6 +21,9 @@ public class MoodMeterTeam {
 	
 	@OneToOne
 	private MoodMeterUser teamOwner;
+	
+	@OneToMany
+	private List<MoodMeterUser> teamMember;
 	
 	public Long getTeamId() {
 		return teamId;
@@ -49,5 +55,17 @@ public class MoodMeterTeam {
 	
 	public void setTeamOwner(MoodMeterUser teamOwner) {
 		this.teamOwner = teamOwner;
+	}
+	
+	public List<MoodMeterUser> getTeamMember() {
+		return teamMember;
+	}
+	
+	public void setTeamMember(List<MoodMeterUser> teamMember) {
+		this.teamMember = teamMember;
+	}
+	
+	public void addTeamMember(MoodMeterUser user) {
+		this.teamMember.add(user);
 	}
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.ziczack.moodmeter.user.MoodMeterUser;
 import de.ziczack.moodmeter.user.MoodMeterUserRespository;
 
 @RestController
@@ -56,6 +57,15 @@ public class MoodMeterTeamController {
 	@DeleteMapping(TEAM + ID_PATH)
 	public void deleteTeam(@PathVariable long id) {
 		teamRepo.deleteById(id);
+	}
+	
+	@PostMapping(TEAM + "/add" + ID_PATH)
+	MoodMeterTeam addTeamMember(@PathVariable long id, @RequestBody MoodMeterTeamMemberDto memberDto) {
+		return teamRepo.findById(id).map(team -> {
+			MoodMeterUser user = userRepo.findById(memberDto.getMemberId()).orElseThrow();
+			team.addTeamMember(user);
+			return teamRepo.save(team);
+		}).orElseThrow();
 	}
 
 	private String generateTeamLink() {
