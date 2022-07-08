@@ -18,7 +18,10 @@ export default function RateView(props: RateViewProps) {
         <p className="text-2xl mb-5">{props.question}</p>
 
         <div className={`flex gap-5 items-center mb-10 h-10`}>
-          <span className={`text-${getEmojiSizeNegative(rating)}xl`}>🌩</span>
+          <span className={`text-${getEmojiSizeNegative(rating)}xl w-32`}>
+            🌩
+          </span>
+
           <input
             type="range"
             min={0}
@@ -30,7 +33,8 @@ export default function RateView(props: RateViewProps) {
               setRating(parseInt(element.target.value));
             }}
           />
-          <span className={`text-${getEmojiSize(rating)}xl`}>☀️</span>
+
+          <span className={`text-${getEmojiSize(rating)}xl w-32`}>☀️</span>
         </div>
 
         <p className="mb-5">Möchtest du noch etwas anmerken?</p>
@@ -48,14 +52,16 @@ export default function RateView(props: RateViewProps) {
   );
 
   function getEmojiSize(sliderValue: number) {
+    console.log(sliderValue);
+
     if (sliderValue === 0) {
-      return "";
+      return 1;
     } else if (sliderValue === 25) {
-      return 2;
+      return 3;
     } else if (sliderValue === 50) {
-      return 4;
+      return 5;
     } else if (sliderValue === 75) {
-      return 6;
+      return 7;
     } else {
       return 8;
     }
@@ -65,13 +71,13 @@ export default function RateView(props: RateViewProps) {
     if (sliderValue === 0) {
       return 8;
     } else if (sliderValue === 25) {
-      return 6;
+      return 7;
     } else if (sliderValue === 50) {
-      return 4;
+      return 5;
     } else if (sliderValue === 75) {
-      return 2;
+      return 3;
     } else {
-      return "";
+      return 1;
     }
   }
 
