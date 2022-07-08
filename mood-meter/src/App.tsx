@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 // import logo from './logo.svg';
+
 import './App.css';
 import Example from './pages/dashboarduser'
 import Sprint from './pages/sprint'
@@ -11,7 +12,6 @@ function App() {
         {/* <Example></Example> */}
         {/* <Test width={500} height={500}></Test> */}
         <Sprint width={500} height={500}></Sprint>
-   
     </div>
   );
 }
