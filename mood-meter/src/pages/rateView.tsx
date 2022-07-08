@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import Rainfall from "react-rainfall-animation/src/Rain";
 import Lottie from "react-lottie";
 import animationData from "../lotties/sparkle-animation.json";
+import { Link, useParams } from "react-router-dom";
 
-export type RateViewProps = {
-  question: string;
-};
-
-export default function RateView(props: RateViewProps) {
+export default function RateView() {
   const defaultValue = 50;
   const [rating, setRating] = useState(defaultValue);
+
+  const { questionId } = useParams();
 
   const sparklesOptions = {
     loop: false,
@@ -29,7 +28,7 @@ export default function RateView(props: RateViewProps) {
       {rating === 0 && <Rainfall dropletsAmount={200}></Rainfall>}
 
       <div className="container mx-auto px-20 text-white z-10">
-        <p className="text-2xl mb-5">{props.question}</p>
+        <p className="text-2xl mb-5">{questionId}</p>
 
         <div className={`flex gap-5 items-center mb-10 h-10`}>
           <span className={`text-${getEmojiSizeNegative(rating)}xl w-32 z-10`}>
@@ -59,7 +58,7 @@ export default function RateView(props: RateViewProps) {
         />
 
         <button type="submit" className="btn btn-primary glass">
-          Submit
+          <Link to="">Submit</Link>
         </button>
 
         <div className="bottom-0 mt-50">
