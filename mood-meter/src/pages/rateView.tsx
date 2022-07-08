@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Rainfall from "react-rainfall-animation/src/Rain";
+import Lottie from "react-lottie";
+import animationData from "../lotties/sparkle-animation.json";
 
 export type RateViewProps = {
   question: string;
@@ -9,13 +11,22 @@ export default function RateView(props: RateViewProps) {
   const defaultValue = 50;
   const [rating, setRating] = useState(defaultValue);
 
+  const sparklesOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <div
       className={`h-screen w-screen bg-gradient-to-b ${getWeatherGradient(
         rating
       )}`}
     >
-      {rating < 50 && <Rainfall dropletsAmount={200}></Rainfall>}
+      {rating === 0 && <Rainfall dropletsAmount={200}></Rainfall>}
 
       <div className="container mx-auto px-20 text-white z-10">
         <p className="text-2xl mb-5">{props.question}</p>
@@ -50,6 +61,12 @@ export default function RateView(props: RateViewProps) {
         <button type="submit" className="btn btn-primary glass">
           Submit
         </button>
+
+        <div className="bottom-0 mt-50">
+          {rating === 100 && (
+            <Lottie options={sparklesOptions} width={600} height={600} />
+          )}
+        </div>
       </div>
     </div>
   );
