@@ -1,15 +1,17 @@
 import React from "react";
 // import logo from './logo.svg';
-import "./App.css";
-import RateView from "./pages/rateView";
 
+import './App.css';
+import Example from './pages/dashboarduser'
+import Sprint from './pages/sprint'
+import Test from './pages/test'
 function App() {
   return (
     <div className="App">
-      <div className="">
-        <RateView question="Wie fandest du den Sprint?" />
-      </div>
-      {/* <Example></Example> */}
+
+        {/* <Example></Example> */}
+        {/* <Test width={500} height={500}></Test> */}
+        <Sprint width={500} height={500}></Sprint>
     </div>
   );
 }
