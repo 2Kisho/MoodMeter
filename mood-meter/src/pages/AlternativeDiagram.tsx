@@ -82,6 +82,9 @@ export default function Example({ width, height, margin = defaultMargin }: Glyph
 
   return (
     <Layout>
+
+
+      
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <svg width={width} height={height}>
       <rect x={0} y={0} width={width} height={height} fill={secondaryColor} rx={14} />
