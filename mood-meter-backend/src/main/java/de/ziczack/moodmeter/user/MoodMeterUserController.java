@@ -16,31 +16,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MoodMeterUserController {
 
-	private static final AtomicLong idGenerator = new AtomicLong(1000);
+	private static final String USER = "/user";
+	private static final AtomicLong ID_GENERATOR = new AtomicLong(1000);
 	@Autowired
-	private MoodMeterUserRespository repo;
+	private MoodMeterUserRespository userRepo;
 	
-	@PostMapping("/user")
-	MoodMeterUser newUser(@RequestBody MoodMeterUser user) {
-		user.setUserId(idGenerator.incrementAndGet());
-		return repo.save(user);
+	@PostMapping(USER)
+	MoodMeterUser newUser(@RequestBody MoodMeterUserDto newUser) {
+		MoodMeterUser user = new MoodMeterUser();
+		user.setUserId(ID_GENERATOR.incrementAndGet());
+		user.setUserName(newUser.getUserName());
+		return userRepo.save(user);
 	}
 	
-	@PutMapping("/updateuser/" + ID_PATH)
-	MoodMeterUser updateUser(@PathVariable long id, @RequestBody MoodMeterUser newUser) {
-		return repo.findById(id).map(user -> {
+	@PutMapping(USER + ID_PATH)
+	MoodMeterUser updateUser(@PathVariable long id, @RequestBody MoodMeterUserDto newUser) {
+		return userRepo.findById(id).map(user -> {
 			user.setUserName(newUser.getUserName());
-			return repo.save(user);
+			return userRepo.save(user);
 		}).orElseThrow();
 	}
 	
-	@DeleteMapping("/deleteuser/" + ID_PATH)
+	@DeleteMapping(USER + ID_PATH)
 	public void deleteUser(@PathVariable long id) {
-		repo.deleteById(id);
+		userRepo.deleteById(id);
 	}
 	
-	@RequestMapping("/user/" + ID_PATH)
+	@RequestMapping(USER + ID_PATH)
 	MoodMeterUser getUserById(@PathVariable long id) {
-		return repo.findById(id).orElseThrow();
+		return userRepo.findById(id).orElseThrow();
 	}
 }
