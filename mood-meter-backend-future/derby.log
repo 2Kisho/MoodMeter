@@ -1,29 +1,13 @@
 ----------------------------------------------------------------
-Fri Jul 08 20:43:17 CEST 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-df1f-92bc-0000032ca098 
-on database directory memory:D:\Programmierung\Programme\git\MoodMeter\MoodMeter\mood-meter-backend-future\cb8898d1-b237-4318-8ef2-7d909016e74b with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2f333739 
-Loaded from file:/C:/Users/basti/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Eclipse Adoptium
-java.runtime.version=17.0.3+7
-user.dir=D:\Programmierung\Programme\git\MoodMeter\MoodMeter\mood-meter-backend-future
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Fri Jul 08 20:45:12 CEST 2022:
-Shutting down instance a816c00e-0181-df1f-92bc-0000032ca098 on database directory memory:D:\Programmierung\Programme\git\MoodMeter\MoodMeter\mood-meter-backend-future\cb8898d1-b237-4318-8ef2-7d909016e74b with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2f333739 
-----------------------------------------------------------------
-Fri Jul 08 20:45:13 CEST 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 0ddd00a9-0181-df1f-92bc-0000032ca098 
-on database directory memory:D:\Programmierung\Programme\git\MoodMeter\MoodMeter\mood-meter-backend-future\2492938c-3546-49bd-b9c8-223e383af91c with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2f333739 
-Loaded from file:/C:/Users/basti/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Eclipse Adoptium
-java.runtime.version=17.0.3+7
-user.dir=D:\Programmierung\Programme\git\MoodMeter\MoodMeter\mood-meter-backend-future
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
+Fri Jul 08 21:24:00 CEST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-df44-db8d-0000011d3180 
+on database directory memory:/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/40fa85bd-55db-4e66-b0cf-aab842e8d840 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1de0aca6 
+Loaded from file:/Users/max/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=18.0.1+10-24
+user.dir=/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future
+os.name=Mac OS X
+os.arch=aarch64
+os.version=12.4
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

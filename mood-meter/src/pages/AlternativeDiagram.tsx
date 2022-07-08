@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from 'react';
-import Layout from '../components/layout';
-import { Group } from '@vx/group';
+import Layout from "../components/layout";
+import { Group } from "@vx/group";
 import {
   Glyph as CustomGlyph,
   GlyphCircle,
@@ -11,19 +10,21 @@ import {
   GlyphStar,
   GlyphTriangle,
   GlyphWye,
-} from '@vx/glyph';
-import { LinePath } from '@vx/shape';
-import genDateValue, { DateValue } from '@vx/mock-data/lib/generators/genDateValue';
-import { scaleTime, scaleLinear } from '@vx/scale';
-import { curveMonotoneX, curveBasis } from '@vx/curve';
+} from "@vx/glyph";
+import { LinePath } from "@vx/shape";
+import genDateValue, {
+  DateValue,
+} from "@vx/mock-data/lib/generators/genDateValue";
+import { scaleTime, scaleLinear } from "@vx/scale";
+import { curveMonotoneX, curveBasis } from "@vx/curve";
 
 const defaultMargin = { top: 10, right: 10, bottom: 10, left: 10 };
-console.log("Hello",genDateValue);
+console.log("Hello", genDateValue);
 
 // colors
-export const primaryColor = '#8921e0';
-export const secondaryColor = '#00f2ff';
-const contrastColor = '#ffffff';
+export const primaryColor = "#8921e0";
+export const secondaryColor = "#00f2ff";
+const contrastColor = "#ffffff";
 
 // Glyphs to render
 const Glyphs = [
@@ -38,8 +39,7 @@ const Glyphs = [
     <CustomGlyph left={left} top={top}>
       <circle r={12} fill={secondaryColor} />
       <text fontSize={16} textAnchor="middle" dy="0.5em">
-        {'💜'}
-  
+        {"💜"}
       </text>
     </CustomGlyph>
   ),
@@ -69,7 +69,11 @@ export type GlyphProps = {
   margin?: typeof defaultMargin;
 };
 
-export default function Example({ width, height, margin = defaultMargin }: GlyphProps) {
+export default function Example({
+  width,
+  height,
+  margin = defaultMargin,
+}: GlyphProps) {
   if (width! < 10) return null;
 
   // bounds
@@ -83,56 +87,60 @@ export default function Example({ width, height, margin = defaultMargin }: Glyph
   return (
     <Layout>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <svg width={width} height={height}>
-      <rect x={0} y={0} width={width} height={height} fill={secondaryColor} rx={14} />
-      <Group left={margin.left} top={margin.top}>
-        <LinePath
-          data={data}
-          x={getX!}
-          y={getY}
-          stroke={primaryColor}
-          strokeWidth={2}
-          strokeDasharray="2,2"
-          curve={curveBasis}
-        />
-        <LinePath
-          data={data}
-          x={getX}
-          y={getY}
-          stroke={primaryColor}
-          strokeWidth={2}
-          curve={curveMonotoneX}
-        />
-        {data.map((d, i) => {
-          const CurrGlyph = Glyphs[i % Glyphs.length];
-          const left = getX(d);
-          const top = getY(d);
-          return (
-            <g key={`line-glyph-${i}`}>
-              <CurrGlyph
-                left={left!}
-                top={top!}
-                size={110}
-                stroke={secondaryColor}
-                strokeWidth={10}
-              />
-              <CurrGlyph
-                left={left!}
-                top={top!}
-                size={110}
-                fill={i % 2 === 0 ? primaryColor : contrastColor}
-                stroke={i % 2 === 0 ? contrastColor : primaryColor}
-                strokeWidth={2}
-              />
-            </g>
-          );
-        })}
-      </Group>
-    </svg>
-    </div>
+        <svg width={width} height={height}>
+          <rect
+            x={0}
+            y={0}
+            width={width}
+            height={height}
+            fill={secondaryColor}
+            rx={14}
+          />
+          <Group left={margin.left} top={margin.top}>
+            <LinePath
+              data={data}
+              x={getX!}
+              y={getY}
+              stroke={primaryColor}
+              strokeWidth={2}
+              strokeDasharray="2,2"
+              curve={curveBasis}
+            />
+            <LinePath
+              data={data}
+              x={getX}
+              y={getY}
+              stroke={primaryColor}
+              strokeWidth={2}
+              curve={curveMonotoneX}
+            />
+            {data.map((d, i) => {
+              const CurrGlyph = Glyphs[i % Glyphs.length];
+              const left = getX(d);
+              const top = getY(d);
+              return (
+                <g key={`line-glyph-${i}`}>
+                  <CurrGlyph
+                    left={left!}
+                    top={top!}
+                    size={110}
+                    stroke={secondaryColor}
+                    strokeWidth={10}
+                  />
+                  <CurrGlyph
+                    left={left!}
+                    top={top!}
+                    size={110}
+                    fill={i % 2 === 0 ? primaryColor : contrastColor}
+                    stroke={i % 2 === 0 ? contrastColor : primaryColor}
+                    strokeWidth={2}
+                  />
+                </g>
+              );
+            })}
+          </Group>
+        </svg>
+      </div>
     </Layout>
-    
   );
-
-
 }
