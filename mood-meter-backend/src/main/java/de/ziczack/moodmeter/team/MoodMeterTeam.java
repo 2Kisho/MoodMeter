@@ -20,11 +20,10 @@ public class MoodMeterTeam {
 	
 	private String teamLink;
 	
-	@OneToOne
-	private MoodMeterUser teamOwner;
+//	private MoodMeterUser teamOwner;
 	
-	@OneToMany
-	private List<MoodMeterUser> teamMember;
+//	@OneToMany
+//	private List<MoodMeterUser> teamMember;
 	
 	@OneToMany
 	private List<MoodMeterQuestion> questions;
@@ -53,25 +52,25 @@ public class MoodMeterTeam {
 		this.teamLink = teamLink;
 	}
 	
-	public MoodMeterUser getTeamOwner() {
-		return teamOwner;
-	}
+//	public MoodMeterUser getTeamOwner() {
+//		return teamOwner;
+//	}
+//	
+//	public void setTeamOwner(MoodMeterUser teamOwner) {
+//		this.teamOwner = teamOwner;
+//	}
 	
-	public void setTeamOwner(MoodMeterUser teamOwner) {
-		this.teamOwner = teamOwner;
-	}
-	
-	public List<MoodMeterUser> getTeamMember() {
-		return teamMember;
-	}
-	
-	public void setTeamMember(List<MoodMeterUser> teamMember) {
-		this.teamMember = teamMember;
-	}
-	
-	public void addTeamMember(MoodMeterUser user) {
-		this.teamMember.add(user);
-	}
+//	public List<MoodMeterUser> getTeamMember() {
+//		return teamMember;
+//	}
+//	
+//	public void setTeamMember(List<MoodMeterUser> teamMember) {
+//		this.teamMember = teamMember;
+//	}
+//	
+//	public void addTeamMember(MoodMeterUser user) {
+//		this.teamMember.add(user);
+//	}
 
 	public void addQuestion(MoodMeterQuestion question) {
 		this.questions.add(question);
