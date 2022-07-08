@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Rainfall from "react-rainfall-animation/src/Rain";
 
 export type RateViewProps = {
   question: string;
@@ -14,11 +15,13 @@ export default function RateView(props: RateViewProps) {
         rating
       )}`}
     >
-      <div className="container mx-auto px-20 text-white">
+      {rating < 50 && <Rainfall dropletsAmount={200}></Rainfall>}
+
+      <div className="container mx-auto px-20 text-white z-10">
         <p className="text-2xl mb-5">{props.question}</p>
 
         <div className={`flex gap-5 items-center mb-10 h-10`}>
-          <span className={`text-${getEmojiSizeNegative(rating)}xl w-32`}>
+          <span className={`text-${getEmojiSizeNegative(rating)}xl w-32 z-10`}>
             🌩
           </span>
 
@@ -34,7 +37,7 @@ export default function RateView(props: RateViewProps) {
             }}
           />
 
-          <span className={`text-${getEmojiSize(rating)}xl w-32`}>☀️</span>
+          <span className={`text-${getEmojiSize(rating)}xl w-32 z-10`}>☀️</span>
         </div>
 
         <p className="mb-5">Möchtest du noch etwas anmerken?</p>
@@ -52,8 +55,6 @@ export default function RateView(props: RateViewProps) {
   );
 
   function getEmojiSize(sliderValue: number) {
-    console.log(sliderValue);
-
     if (sliderValue === 0) {
       return 1;
     } else if (sliderValue === 25) {
