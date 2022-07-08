@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.ziczack.moodmeter.team.question.MoodMeterQuestion;
+import de.ziczack.moodmeter.team.question.MoodMeterQuestionRepository;
+import de.ziczack.moodmeter.team.question.MoodMeterTeamQuestionDto;
 import de.ziczack.moodmeter.user.MoodMeterUser;
 import de.ziczack.moodmeter.user.MoodMeterUserRespository;
 
@@ -23,6 +26,7 @@ public class MoodMeterTeamController {
 
 	private static final String TEAM = "/team";
 	private static final AtomicLong ID_GENERATOR = new AtomicLong(1000);
+	private static final AtomicLong QUESTION_ID_GENERATOR = new AtomicLong(1000);
 	private static final Random RANDOM = new Random();
 	
 	@Autowired
@@ -30,6 +34,9 @@ public class MoodMeterTeamController {
 	
 	@Autowired
 	private MoodMeterUserRespository userRepo;
+	
+	@Autowired
+	private MoodMeterQuestionRepository questionRepo;
 	
 	@PostMapping(TEAM)
 	MoodMeterTeam newTeam(@RequestBody MoodMeterTeamDto newTeam) {
@@ -64,6 +71,18 @@ public class MoodMeterTeamController {
 		return teamRepo.findById(id).map(team -> {
 			MoodMeterUser user = userRepo.findById(memberDto.getMemberId()).orElseThrow();
 			team.addTeamMember(user);
+			return teamRepo.save(team);
+		}).orElseThrow();
+	}
+	
+	@PostMapping(TEAM + "/question" + ID_PATH)
+	MoodMeterTeam addQuestion(@PathVariable long id, @RequestBody MoodMeterTeamQuestionDto questionDto) {
+		return teamRepo.findById(id).map(team -> {
+			MoodMeterQuestion question = new MoodMeterQuestion();
+			question.setId(QUESTION_ID_GENERATOR.incrementAndGet());
+			question.setQuestion(questionDto.getQuestion());
+			question = questionRepo.save(question);
+			team.addQuestion(question);
 			return teamRepo.save(team);
 		}).orElseThrow();
 	}

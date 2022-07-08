@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import de.ziczack.moodmeter.team.question.MoodMeterQuestion;
 import de.ziczack.moodmeter.user.MoodMeterUser;
 
 @Entity
@@ -24,6 +25,9 @@ public class MoodMeterTeam {
 	
 	@OneToMany
 	private List<MoodMeterUser> teamMember;
+	
+	@OneToMany
+	private List<MoodMeterQuestion> questions;
 	
 	public Long getTeamId() {
 		return teamId;
@@ -67,5 +71,13 @@ public class MoodMeterTeam {
 	
 	public void addTeamMember(MoodMeterUser user) {
 		this.teamMember.add(user);
+	}
+
+	public void addQuestion(MoodMeterQuestion question) {
+		this.questions.add(question);
+	}
+	
+	public List<MoodMeterQuestion> getQuestions() {
+		return questions;
 	}
 }
