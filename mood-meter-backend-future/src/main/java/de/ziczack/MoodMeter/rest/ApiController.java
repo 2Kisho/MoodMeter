@@ -1,7 +1,10 @@
 package de.ziczack.MoodMeter.rest;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +24,20 @@ public class ApiController {
 	
 	@GetMapping("/questions")
 	public List<QuestionDto> getAllQuestions() {
-		return MapCache.getQuestionCache().values().stream().toList();
+		List<QuestionDto> qs = new ArrayList<>();
+		for (QuestionDto question : MapCache.getQuestionCache().values()) {
+			qs.add(question);
+		}
+		return qs;
+	}
+	
+	@GetMapping("/questions/{id}")
+	public QuestionDto getQuestion(@PathVariable long id) {
+		QuestionDto questionDto = MapCache.getQuestionCache().get(id);
+		if (questionDto == null) {
+			throw new RuntimeException();
+		}
+		return questionDto;
 	}
 	
 	@PostMapping("/answer/{id}")

@@ -20,14 +20,14 @@ public class MoodMeterApplication {
 	public static void initCaches() {
 		QuestionDto q = new QuestionDto();
 		q.setId(17);
-		q.setQuestion("Wie zufrieden warst du ...");
+		q.setQuestion("Wie zufrieden warst du mit deinen Aufgaben im letzten Sprint?");
 		q.setTitle("Zufriedenheit");
 		MapCache.getQuestionCache().put(q.getId(), q);
 		
 		AnswerDto answer = new AnswerDto();
 		answer.setId(19);
 		answer.setDate(new Date());
-		answer.setNote("blablubb");
+		answer.setNote("Summ Summ Summ, der Kollege macht mich dumm");
 		answer.setValue(5);
 		q.addAnswer(answer);
 		MapCache.getAnswerCache().put(answer.getId(), answer);
