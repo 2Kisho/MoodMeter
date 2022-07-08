@@ -9,8 +9,8 @@ function App() {
     <div className="App">
 
         {/* <Example></Example> */}
-        {/* <Test width={500} height={500}></Test> */}
-        <Sprint width={500} height={500}></Sprint>
+        <Test width={500} height={300}></Test>
+        {/* <Sprint width={500} height={300}></Sprint> */}
    
     </div>
   );
