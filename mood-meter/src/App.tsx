@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 // import logo from './logo.svg';
-import './App.css';
-import Example from './pages/dashboarduser'
+import "./App.css";
+import RateView from "./pages/rateView";
 
 function App() {
   return (
     <div className="App">
-
-        <Example></Example>
-   
+      <div className="container mx-auto px-20">
+        <RateView question="Wie fandest du den Sprint?" />
+      </div>
+      {/* <Example></Example> */}
     </div>
   );
 }
