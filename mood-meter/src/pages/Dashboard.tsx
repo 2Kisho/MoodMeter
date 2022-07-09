@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import { Link } from "react-router-dom";
-import TestDiagram from "./TestDiagram";
+import MoodDiagram from "./TestDiagram";
 import { useEffect, useState } from "react";
 
 export default function DashboardView() {
@@ -21,11 +21,15 @@ export default function DashboardView() {
   if (questions) {
     return (
       <Layout>
-        <TestDiagram width={500} height={500} />
+        <div className="grid grid-cols-1 mb-5">
+          <MoodDiagram width={500} height={500} question={questions[0]} />
+        </div>
 
-        <button className="btn btn-primary">
-          <Link to={`rate/${questions[0]["id"]}`}>Bewerten</Link>
-        </button>
+        <div className="flex justify-center">
+          <button className={`btn btn-primary mx-auto`}>
+            <Link to={`rate/${questions[0]["id"]}`}>Eintrag erstellen</Link>
+          </button>
+        </div>
       </Layout>
     );
   } else {

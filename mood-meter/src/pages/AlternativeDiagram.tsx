@@ -86,9 +86,6 @@ export default function Example({
 
   return (
     <Layout>
-
-
-      
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <svg width={width} height={height}>
           <rect

@@ -3,6 +3,7 @@ import Rainfall from "react-rainfall-animation/src/Rain";
 import Lottie from "react-lottie";
 import animationData from "../lotties/sparkle-animation.json";
 import { Link, useParams } from "react-router-dom";
+import Layout from "../components/layout";
 
 export default function RateView() {
   const defaultValue = 50;
@@ -35,59 +36,66 @@ export default function RateView() {
 
   if (question) {
     return (
-      <div
-        className={`h-screen w-screen bg-gradient-to-b ${getWeatherGradient(
-          rating
-        )}`}
-      >
-        {rating === 0 && <Rainfall dropletsAmount={200}></Rainfall>}
+      <Layout>
+        <div
+          className={`h-screen w-screen bg-gradient-to-b ${getWeatherGradient(
+            rating
+          )}`}
+        >
+          {rating === 0 && <Rainfall dropletsAmount={200}></Rainfall>}
 
-        <div className="container mx-auto px-20 text-white z-10">
-          <p className="text-2xl mb-5">{question["question"]}</p>
-          <div className={`flex gap-5 items-center mb-10 h-10`}>
-            <span
-              className={`text-${getEmojiSizeNegative(rating)}xl w-32 z-10`}
-            >
-              🌩
-            </span>
+          <div className="container mx-auto px-20 text-white z-10 py-10">
+            <p className="text-3xl mb-5 text-center">{question["question"]}</p>
+            <div className={`flex gap-5 items-center mb-10 h-10`}>
+              <span
+                className={`text-${getEmojiSizeNegative(rating)}xl w-32 z-10`}
+              >
+                🌩
+              </span>
 
+              <input
+                type="range"
+                min={0}
+                max={100}
+                defaultValue={defaultValue}
+                className="range range-primary range-lg"
+                step={25}
+                onChange={(element) => {
+                  setRating(parseInt(element.target.value));
+                }}
+              />
+
+              <span className={`text-${getEmojiSize(rating)}xl w-32 z-10`}>
+                ☀️
+              </span>
+            </div>
+            <p className="mb-5 text-xl text-center">
+              Möchtest du noch etwas anmerken?
+            </p>
             <input
-              type="range"
-              min={0}
-              max={100}
-              defaultValue={defaultValue}
-              className="range range-primary range-lg"
-              step={25}
-              onChange={(element) => {
-                setRating(parseInt(element.target.value));
-              }}
+              type="text"
+              onChange={(e) => setNote(e.target.value)}
+              className="input input-bordered w-full mb-10 glass text-white"
             />
 
-            <span className={`text-${getEmojiSize(rating)}xl w-32 z-10`}>
-              ☀️
-            </span>
-          </div>
-          <p className="mb-5">Möchtest du noch etwas anmerken?</p>
-          <input
-            type="text"
-            onChange={(e) => setNote(e.target.value)}
-            className="input input-bordered w-full mb-10 glass text-white"
-          />
+            {/* Todo: Post request implementation */}
+            <div className="flex justify-center">
+              <button
+                onClick={() => postAnswer()}
+                className="btn btn-primary glass"
+              >
+                <Link to="/">Submit</Link>
+              </button>
+            </div>
 
-          {/* Todo: Post request implementation */}
-          <button
-            onClick={() => postAnswer()}
-            className="btn btn-primary glass"
-          >
-            <Link to="/">Submit</Link>
-          </button>
-          <div className="bottom-0 mt-50">
-            {rating === 100 && (
-              <Lottie options={sparklesOptions} width={600} height={600} />
-            )}
+            <div className="bottom-0 mt-50">
+              {rating === 100 && (
+                <Lottie options={sparklesOptions} width={600} height={600} />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   } else {
     return <></>;
