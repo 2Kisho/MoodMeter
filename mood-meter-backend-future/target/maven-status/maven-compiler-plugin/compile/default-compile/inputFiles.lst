@@ -1,0 +1,15 @@
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/rest/dto/AnswerDto.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/Day.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/cache/IdentifiableCache.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/MoodMeterApplication.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/cache/MasterCache.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/rest/cache/MapCache.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/User.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/cache/QuestionCache.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/Identifiable.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/cache/SprintCache.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/rest/dto/QuestionDto.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/Question.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/Sprint.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/entity/cache/UserCache.java
+/Users/max/Documents/Projekte/MoodMeter/mood-meter-backend-future/src/main/java/de/ziczack/MoodMeter/rest/ApiController.java

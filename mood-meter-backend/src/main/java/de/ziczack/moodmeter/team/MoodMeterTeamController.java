@@ -44,7 +44,7 @@ public class MoodMeterTeamController {
 		team.setTeamId(ID_GENERATOR.incrementAndGet());
 		team.setTeamName(newTeam.getTeamName());
 		team.setTeamLink(generateTeamLink());
-		team.setTeamOwner(userRepo.findById(newTeam.getTeamOwner()).orElseThrow());
+//		team.setTeamOwner(userRepo.findById(newTeam.getTeamOwner()).orElseThrow());
 		return teamRepo.save(team);
 	}
 	
@@ -70,7 +70,7 @@ public class MoodMeterTeamController {
 	MoodMeterTeam addTeamMember(@PathVariable long id, @RequestBody MoodMeterTeamMemberDto memberDto) {
 		return teamRepo.findById(id).map(team -> {
 			MoodMeterUser user = userRepo.findById(memberDto.getMemberId()).orElseThrow();
-			team.addTeamMember(user);
+//			team.addTeamMember(user);
 			return teamRepo.save(team);
 		}).orElseThrow();
 	}
