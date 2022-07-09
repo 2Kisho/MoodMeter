@@ -14,11 +14,20 @@ export default function DashboardView() {
     const response = await fetch("/questions").then((response) =>
       response.json()
     );
-
     setQuestions(response);
   };
 
   if (questions) {
+    const latestAnswerIndex = Object.keys(questions[0]["answers"]).length - 1;
+    const latestAnswerDate = new Date(
+      questions[0]["answers"][latestAnswerIndex]["date"]
+    );
+    const todayDate = new Date();
+    const todayWasAnswered =
+      latestAnswerDate.getDate() === todayDate.getDate() &&
+      latestAnswerDate.getMonth() === todayDate.getMonth() &&
+      latestAnswerDate.getFullYear() === todayDate.getFullYear();
+
     return (
       <NavigationBar>
         <div className="flex justify-center">
@@ -26,7 +35,11 @@ export default function DashboardView() {
         </div>
 
         <div className="flex justify-center">
-          <button className={`btn btn-primary mx-auto`}>
+          <button
+            className={`btn btn-primary mx-auto ${
+              todayWasAnswered && "btn-disabled"
+            }`}
+          >
             <Link to={`rate/${questions[0]["id"]}`}>Eintrag erstellen</Link>
           </button>
         </div>
