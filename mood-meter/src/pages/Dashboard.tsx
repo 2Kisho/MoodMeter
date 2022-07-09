@@ -1,4 +1,4 @@
-import Layout from "../components/layout";
+import NavigationBar from "../components/NavigationBar";
 import { Link } from "react-router-dom";
 import MoodDiagram from "./TestDiagram";
 import { useEffect, useState } from "react";
@@ -20,7 +20,7 @@ export default function DashboardView() {
 
   if (questions) {
     return (
-      <Layout>
+      <NavigationBar>
         <div className="grid grid-cols-1 mb-5">
           <MoodDiagram width={500} height={500} question={questions[0]} />
         </div>
@@ -30,7 +30,7 @@ export default function DashboardView() {
             <Link to={`rate/${questions[0]["id"]}`}>Eintrag erstellen</Link>
           </button>
         </div>
-      </Layout>
+      </NavigationBar>
     );
   } else {
     return <></>;

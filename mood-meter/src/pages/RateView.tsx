@@ -4,7 +4,7 @@ import Lottie from "react-lottie";
 import animationData from "../lotties/sparkle-animation.json";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Layout from "../components/layout";
+import NavigationBar from "../components/layout";
 
 export default function RateView() {
   const defaultValue = 50;

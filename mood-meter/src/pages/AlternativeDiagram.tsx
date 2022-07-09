@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import Layout from "../components/layout";
+import NavigationBar from "../components/layout";
 import { Group } from "@vx/group";
 import {
   Glyph as CustomGlyph,
@@ -85,7 +85,7 @@ export default function Example({
   yScale.range([innerHeight, 0]);
 
   return (
-    <Layout>
+    <NavigationBar>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <svg width={width} height={height}>
           <rect
@@ -141,6 +141,6 @@ export default function Example({
           </Group>
         </svg>
       </div>
-    </Layout>
+    </NavigationBar>
   );
 }
