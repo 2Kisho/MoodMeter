@@ -16,13 +16,13 @@ export default function MoodDiagram({ width, height, question }: CurveProps) {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="card card-bordered flex flex-col items-center py-10 pr-10 m-5">
       <LineChart
-        width={300}
+        width={350}
         height={300}
         data={question["answers"]}
-        margin={{ top: 5, bottom: 5 }}
-        className="my-5"
+        margin={{ top: 5, bottom: 5, right: 5, left: 5 }}
+        className="mb-7"
       >
         <XAxis dataKey="weekday" />
         <YAxis domain={[0, 5]} />
@@ -30,7 +30,7 @@ export default function MoodDiagram({ width, height, question }: CurveProps) {
         <Line type="monotone" dataKey="value" stroke="#ff7300" yAxisId={0} />
       </LineChart>
 
-      <span>{question["title"]}</span>
+      <p className="text-lg font-bold ml-10">{question["title"]}</p>
     </div>
   );
 }

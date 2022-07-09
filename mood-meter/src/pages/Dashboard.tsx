@@ -21,7 +21,7 @@ export default function DashboardView() {
   if (questions) {
     return (
       <NavigationBar>
-        <div className="grid grid-cols-1 mb-5">
+        <div className="flex justify-center">
           <MoodDiagram width={500} height={500} question={questions[0]} />
         </div>
 

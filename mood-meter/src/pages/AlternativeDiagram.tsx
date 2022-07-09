@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import NavigationBar from "../components/layout";
+import NavigationBar from "../components/NavigationBar";
 import { Group } from "@vx/group";
 import {
   Glyph as CustomGlyph,
