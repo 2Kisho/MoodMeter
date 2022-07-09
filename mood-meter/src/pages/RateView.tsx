@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Rainfall from "react-rainfall-animation/src/Rain";
 import Lottie from "react-lottie";
 import animationData from "../lotties/sparkle-animation.json";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavigationBar from "../components/NavigationBar";
 
 export default function RateView() {
   const defaultValue = 50;
@@ -151,7 +150,6 @@ export default function RateView() {
       fetch(`/answer/${question["id"]}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        // mode: "cors",
         body: JSON.stringify({
           value: rating / 25 + 1,
           note: note,

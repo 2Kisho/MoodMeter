@@ -26,7 +26,7 @@ public class MoodMeterApplication {
 		
 		AnswerDto answer = new AnswerDto();
 		answer.setId(19);
-		answer.setDate(new Date());
+		answer.setDate(new Date(System.currentTimeMillis()-24*60*60*1000));
 		answer.setNote("Summ Summ Summ, der Kollege macht mich dumm");
 		answer.setValue(5);
 		q.addAnswer(answer);
