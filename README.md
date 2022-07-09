@@ -24,7 +24,7 @@ npm start
 
 ### Backend
 
-Use maven to run the backend. 
+Use maven to run the backend in the folder mood-meter-backend-future. The mood-meter-backend was first attempt.
 
 ```bash
 mvn spring-boot:run
