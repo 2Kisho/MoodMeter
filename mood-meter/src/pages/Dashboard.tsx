@@ -2,6 +2,8 @@ import NavigationBar from "../components/NavigationBar";
 import { Link } from "react-router-dom";
 import MoodDiagram from "./TestDiagram";
 import { useEffect, useState } from "react";
+import Lottie from "react-lottie";
+import animationData from "../lotties/pig-animation.json";
 
 export default function DashboardView() {
   const [questions, setQuestions] = useState();
@@ -15,6 +17,15 @@ export default function DashboardView() {
       response.json()
     );
     setQuestions(response);
+  };
+
+  const pigOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
 
   if (questions) {
@@ -34,14 +45,17 @@ export default function DashboardView() {
           <MoodDiagram width={500} height={500} question={questions[0]} />
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center items-center">
           <button
-            className={`btn btn-primary mx-auto ${
-              todayWasAnswered && "btn-disabled"
-            }`}
+            className={`btn btn-primary ${todayWasAnswered && "btn-disabled"}`}
           >
             <Link to={`rate/${questions[0]["id"]}`}>Eintrag erstellen</Link>
           </button>
+          {!todayWasAnswered && (
+            <span className="w-16 mb-4">
+              <Lottie options={pigOptions} width={100} height={100} />
+            </span>
+          )}
         </div>
       </NavigationBar>
     );
